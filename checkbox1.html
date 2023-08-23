@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Opción</title>
+<style>
+  /* Estilos generales */
+  body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #f0f0f0;
+  }
+
+  /* Estilos del contenedor de resultados */
+  .result-container {
+    background-color: white;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    margin-bottom: 20px;
+    width: 80%;
+    max-width: 400px;
+  }
+
+  /* Estilos de la galería de imágenes */
+  .image-gallery {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+
+  /* Estilos de cada elemento de la galería */
+  .gallery-item {
+    text-align: center;
+    cursor: pointer;
+    transition: transform 0.2s;
+  }
+
+  /* Estilos de las imágenes de la galería */
+  .gallery-image {
+    max-width: 100px;
+    max-height: 100px;
+    border-radius: 4px;
+    transition: transform 0.2s;
+  }
+
+  .gallery-item:hover .gallery-image {
+    transform: scale(1.1);
+  }
+
+  /* Estilos para los títulos y texto */
+  h2 {
+    margin-bottom: 10px;
+    color: #333;
+  }
+
+  #result-value {
+    font-size: 24px;
+    font-weight: bold;
+    margin-top: 10px;
+    color: #007bff;
+  }
+
+  #selected-image-name {
+    margin-top: 10px;
+    font-weight: bold;
+    color: #333;
+  }
+
+  #image-measures {
+    margin-top: 5px;
+    color: #555;
+  }
+
+  .division-result {
+    margin-top: 5px;
+    font-size: 14px;
+    color: #888;
+  }
+
+  .image-number {
+    font-weight: bold;
+    font-size: 18px;
+    margin-top: 10px;
+    color: #007bff;
+  }
+
+  .final-result {
+    font-weight: bold;
+    font-size: 20px;
+    margin-top: 20px;
+    color: #007bff;
+  }
+
+  .division-by-3 {
+    font-size: 16px;
+    color: #555;
+    margin-top: 10px;
+  }
+
+  .division-by-9 {
+    font-size: 16px;
+    color: #555;
+    margin-top: 10px;
+  }
+
+  .image-price {
+    font-size: 16px;
+    margin-top: 5px;
+    color: #555;
+  }
+
+  /* Estilos del botón de información */
+  .info-button {
+    margin-top: 10px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 8px 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    text-decoration: none;
+    display: inline-block;
+    text-align: center;
+  }
+
+  .info-button:hover {
+    background-color: #0056b3;
+  }
+</style>
+</head>
+<body>
+<div class="result-container">
+  <h2>Opción</h2>
+  <p>El área en metros cuadrados es:</p>
+  <p id="result-value"></p>
+  <p id="selected-image-name"></p>
+  <p id="image-measures"></p>
+  <p class="division-result"></p>
+  <p class="image-number"></p>
+  <p class="final-result"></p>
+  <p class="division-by-3"></p>
+  <p class="division-by-9"></p>
+  <p class="image-price"></p>
+  <a href="otra_pagina.html" class="info-button">Ver más información</a>
+</div>
+<div class="image-gallery">
+  <div class="gallery-item" onclick="showInfo('PISO BAKURAH GRIS 60X60 EURO', '2.16 metros', 2.16, 6, 5)">
+    <img src="img/PISO BAKURAH GRIS 60X60 C2.16M EURO.jpg" alt="Imagen 1" class="gallery-image">
+    <p>PISO BAKURAH GRIS</p>
+  </div>
+  <div class="gallery-item" onclick="showInfo('Item 2', '12cm x 18cm', 0.20, 2, 8)">
+    <img src="imagen2.jpg" alt="Imagen 2" class="gallery-image">
+    <p>Item 2</p>
+  </div>
+  <div class="gallery-item" onclick="showInfo('Item 3', '8cm x 12cm', 0.10, 3, 3)">
+    <img src="imagen3.jpg" alt="Imagen 3" class="gallery-image">
+    <p>Item 3</p>
+  </div>
+</div>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const resultValue = document.getElementById("result-value");
+    const area = localStorage.getItem("area");
+    resultValue.textContent = parseInt(area);
+    localStorage.removeItem("area");
+  });
+
+  function showInfo(name, measures, cajaRatio, imageNumber, price) {
+    const selectedImageName = document.getElementById("selected-image-name");
+    const imageMeasures = document.getElementById("image-measures");
+    const divisionResults = document.querySelectorAll(".division-result");
+    const imageNumberElements = document.querySelectorAll(".image-number");
+    const finalResultElement = document.querySelector(".final-result");
+    const divisionBy3Element = document.querySelector(".division-by-3");
+    const divisionBy9Element = document.querySelector(".division-by-9");
+    const imagePriceElement = document.querySelector(".image-price");
+    const area = parseFloat(document.getElementById("result-value").textContent);
+    selectedImageName.textContent = `Imagen seleccionada: ${name}`;
+    imageMeasures.textContent = `Medidas de caja: ${measures}`;
+    divisionResults.forEach(result => {
+      const division = area / cajaRatio;
+      result.textContent = `Resultado de la división: ${Math.round(division)}`;
+    });
+    imageNumberElements.forEach(numberElement => {
+      numberElement.textContent = `Número de imagen: ${Math.round(imageNumber)}`;
+    });
+    const finalResult = Math.round((area / cajaRatio) * imageNumber);
+    finalResultElement.textContent = `Resultado final: ${finalResult}`;
+    
+    const divisionBy3 = Math.round(area / 3);
+    divisionBy3Element.textContent = `División de metros cuadrados entre 3: ${divisionBy3}`;
+    
+    const divisionBy9 = Math.round(area / 9);
+    divisionBy9Element.textContent = `División de metros cuadrados entre 9: ${divisionBy9} bolsas de 2kg`;
+    
+    imagePriceElement.textContent = `Precio: $${price}`;
+  }
+</script>
+</body>
+</html>
