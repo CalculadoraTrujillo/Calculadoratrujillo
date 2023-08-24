@@ -83,7 +83,7 @@ a:hover {
   transition: all ease-in-out 0.5s;
   z-index: 9997;
   transition: all 0.5s;
-  padding: 0 15px;
+ 
   background: #ffffff;
   overflow-y: auto;
 }
@@ -171,19 +171,24 @@ a:hover {
 }
 
 .calculator h1 {
-  font-size: 18px;
+  font-size: 20px;
   font-weight: 800;
-  margin-bottom: 22px;
+  color: #193686;
 }
 
 label {
   display: block;
   margin-top: 10px;
-  font-size: 12px;
+  font-size: 15px;
+  color: #193686;;
+  font-weight: 500;
+  width: 80%;
+  margin: auto;
 }
 #calculator-form{
   width: 100%;
   justify-content: center;
+  margin-bottom: 20px;
 }
 #calculator-form input {
   width: 50%;
@@ -203,22 +208,27 @@ input {
   
 }
 #editable-result {
-  width: 80%;
+  width: 30%;
   padding: 8px;
   border: 1px solid #ccc;
   border-radius: 4px;
   margin: auto;
-  font-size: 10px;
+  height: 22px;
+  background-color: #ffffff;
+  font-family: "Poppins", sans-serif;
 }
 
 #final-result {
-  width: 80%;
+  width: 30%;
   padding: 8px;
   border: 1px solid #ccc;
   border-radius: 4px;
   background-color: #f0f0f0;
   cursor: not-allowed;
   margin: auto;
+  height: 22px;
+ margin-bottom: 0px;
+  font-family: "Poppins", sans-serif;
 }
 
 .checkbox-container {
@@ -230,12 +240,36 @@ input {
 
 #calculate-button {
   margin-top: 20px;
-  padding: 8px 16px;
+  padding: 12px 25px;
   background-color: #007bff;
   color: white;
-  border: none;
+  border: 1px solid #007bff;
   border-radius: 4px;
   cursor: pointer;
+  transition: all 500ms ease;
+}
+#calculate-button:hover {
+  margin-top: 20px;
+  padding: 12px 25px;
+  background-color: rgba(0, 0, 0, 0);
+  color: #007bff;
+  border: 1px solid #007bff;
+  box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.1);
+  border-radius: 4px;
+  cursor: pointer;
+}
+.contenedor-de-resultados-metros-cuadrados{
+    display: flex;
+    background-color: #f1f1f1;
+    padding: 12px 50px;
+}
+.checkbox-container{
+    line-height: 1;
+
+}
+.checkbox-container div span{
+
+
 }
 
 </style>
@@ -245,34 +279,38 @@ input {
     <div class="d-flex flex-column">
 
       <section id="hero" class="hero-calculadora d-flex align-items-center">
-        <div>
-            <img src="img/IMG_3218.jpg" width="100%" height="50%" alt="">
+        <div class="" style="justify-content: center; justify-self: center; align-items: center; text-align: center;">
+            <a href="index.html"><img src="img/logo calculadora.png" width="40%" style="margin-top: 22px;" height="50%" alt=""></a>
         </div>
         <div class="calculator">
-          <h1>Calculadora de Metraje </h1>
+          <h1>Calculadora de <span style="color: #007bff;">Metraje</span> </h1>
+
         
           <form id="calculator-form">
             <div class="" style="display: grid; grid-template-columns: 1fr 1fr;">
                 <div>
-                    <label for="largo">Largo-alto (metros):</label>
-                    <input type="number" id="largo" step="0.01">
+                    <label for="largo">Largo-fondo:</label>
+                    <input  placeholder="(Metros)" type="number" id="largo" step="0.01">
                 </div>
                 <div class="">
-                    <label for="ancho">Ancho (metros):</label>
-                    <input type="number" id="ancho" step="0.01">
+                    <label for="ancho">Ancho:</label>
+                    <input  placeholder="(Metros)" type="number" id="ancho" step="0.01">
                 </div>
             </div>
           </form>
-          <label>Largo-alto (metros):</label>
-          <input style="margin-top: 8px;" type="number" id="editable-result" placeholder="Escribe la cantidad de m² que necesitas">
-          <input type="number" id="final-result" placeholder="Área final" readonly>
+          <label>Metros cuadrados :</label>
+          <div class="contenedor-de-resultados-metros-cuadrados">
+            <input style="margin-top: 8px;" type="number" id="editable-result" placeholder=" m² ">
+            <input type="number" id="final-result" placeholder="Área final" readonly>
+          </div>
+          
           <div class="checkbox-container">
             <div>
-                <span style="font-size: 12px;">Selecciona una de las casillas, la que más resulte conveniente</span>
+                <span style="font-size: 10px; margin-bottom: 12px;">Selecciona una de las casillas, la que más resulte conveniente</span>
             </div>
-            <div class="" style="display: grid; grid-template-columns: 1fr 1fr 1fr;">
-                <div> <label><input type="checkbox" name="checkboxes" class="checkbox" id="checkbox1"> Ceramica</label></div>
-                <div> <label><input type="checkbox" name="checkboxes" class="checkbox" id="checkbox2"> Porcelanto</label></div>
+            <div class="" style="display: grid; grid-template-columns: 1fr 1fr 1fr; margin-top: 20px;">
+                <div> <label><input type="checkbox" name="checkboxes" class="checkbox" id="checkbox1"> Cerámica</label></div>
+                <div> <label><input type="checkbox" name="checkboxes" class="checkbox" id="checkbox2"> Porcelanato</label></div>
                 <div><label><input type="checkbox" name="checkboxes" class="checkbox" id="checkbox3"> Cenefas</label></div>
             </div>
             
@@ -345,7 +383,7 @@ input {
         localStorage.setItem("area", area);
         window.location.href = `${checkboxId}.html`;
       } else {
-        alert("Selecciona un checkbox antes de calcular.");
+        alert("Selecciona una casilla antes de calcular.");
       }
     });
 
