@@ -19,6 +19,7 @@
 
   /* Estilos del contenedor de resultados */
   .result-container {
+   
     background-color: white;
     border-radius: 8px;
     padding: 20px;
@@ -27,15 +28,19 @@
     margin-bottom: 20px;
     width: 80%;
     max-width: 400px;
+    height: 100vh;
+    left: 0;
   }
 
   /* Estilos de la galería de imágenes */
   .image-gallery {
-    display: flex;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
     gap: 20px;
+    position: absolute;
   }
 
   /* Estilos de cada elemento de la galería */
@@ -137,37 +142,109 @@
   .info-button:hover {
     background-color: #0056b3;
   }
+
+
+
+  /*ESTILOS DE BUSCADOR*/
+
+  /*FIN DE ESTILOS DE BUSCADOR*/
 </style>
 </head>
 <body>
-<div class="result-container">
-  <h2>Opción</h2>
-  <p>El área en metros cuadrados es:</p>
-  <p id="result-value"></p>
-  <p id="selected-image-name"></p>
-  <p id="image-measures"></p>
-  <p class="division-result"></p>
-  <p class="image-number"></p>
-  <p class="final-result"></p>
-  <p class="division-by-3"></p>
-  <p class="division-by-9"></p>
-  <p class="image-price"></p>
-  <a href="otra_pagina.html" class="info-button">Ver más información</a>
-</div>
-<div class="image-gallery">
-  <div class="gallery-item" onclick="showInfo('PISO BAKURAH GRIS 60X60 EURO', '2.16 metros', 2.16, 6, 5)">
-    <img src="img/PISO BAKURAH GRIS 60X60 C2.16M EURO.jpg" alt="Imagen 1" class="gallery-image">
-    <p>PISO BAKURAH GRIS</p>
+
+  <div class="container-fluid" style="display: grid; grid-template-columns: 1fr 1fr; width: 100%;">
+        <div style="left: 0; position: fixed; width: 50%;">
+          <div class="result-container">
+            <h2>Opción</h2>
+            <p>El área en metros cuadrados es:</p>
+            <p id="result-value"></p>
+            <p id="selected-image-name"></p>
+            <p id="image-measures"></p>
+            <p class="division-result"></p>
+            <p class="image-number"></p>
+            <p class="final-result"></p>
+            <p class="division-by-3"></p>
+            <p class="division-by-9"></p>
+            <p class="image-price"></p>
+            <a href="otra_pagina.html" class="info-button">Ver más información</a>
+          </div>
+        </div>
+          
+        <div style="position: absolute; right: 0 ;width: 50%;">
+
+       
+
+          <div class="image-gallery">
+            
+                  <div class="gallery-item" onclick="showInfo('PISO BAKURAH GRIS 60X60 EURO', '2.16 metros', 2.16, 6, 5)">
+                    <img src="img/PISO BAKURAH GRIS 60X60 C2.16M EURO.jpg" alt="Imagen 1" class="gallery-image">
+                    <p>PISO BAKURAH GRIS</p>
+                  </div>
+                  <div class="gallery-item" onclick="showInfo('Item 2', '12cm x 18cm', 0.20, 2, 8)">
+                    <img src="img/PISO BAKURAH GRIS 60X60 C2.16M EURO.jpg" alt="Imagen 2" class="gallery-image">
+                    <p>Item 2</p>
+                  </div>
+                  <div class="gallery-item" onclick="showInfo('Item 3', '8cm x 12cm', 0.10, 3, 3)">
+                    <img src="img/PISO BAKURAH GRIS 60X60 C2.16M EURO.jpg" alt="Imagen 3" class="gallery-image">
+                    <p>Item 3</p>
+                  </div>
+                  <div class="gallery-item" onclick="showInfo('Item 3', '8cm x 12cm', 0.10, 3, 3)">
+                    <img src="img/PISO BAKURAH GRIS 60X60 C2.16M EURO.jpg" alt="Imagen 3" class="gallery-image">
+                    <p>Item 3</p>
+                  </div>
+                  <div class="gallery-item" onclick="showInfo('Item 3', '8cm x 12cm', 0.10, 3, 3)">
+                    <img src="img/PISO BAKURAH GRIS 60X60 C2.16M EURO.jpg" alt="Imagen 3" class="gallery-image">
+                    <p>Item 3</p>
+                  </div>
+                  <div class="gallery-item" onclick="showInfo('Item 3', '8cm x 12cm', 0.10, 3, 3)">
+                    <img src="img/PISO BAKURAH GRIS 60X60 C2.16M EURO.jpg" alt="Imagen 3" class="gallery-image">
+                    <p>Item 3</p>
+                  </div>
+                  <div class="gallery-item" onclick="showInfo('Item 3', '8cm x 12cm', 0.10, 3, 3)">
+                    <img src="img/PISO BAKURAH GRIS 60X60 C2.16M EURO.jpg" alt="Imagen 3" class="gallery-image">
+                    <p>Item 3</p>
+                  </div>
+                  <div class="gallery-item" onclick="showInfo('Item 3', '8cm x 12cm', 0.10, 3, 3)">
+                    <img src="img/PISO BAKURAH GRIS 60X60 C2.16M EURO.jpg" alt="Imagen 3" class="gallery-image">
+                    <p>Item 3</p>
+                  </div>
+
+                  <div class="gallery-item" onclick="showInfo('Item 3', '8cm x 12cm', 0.10, 3, 3)">
+                    <img src="img/PISO BAKURAH GRIS 60X60 C2.16M EURO.jpg" alt="Imagen 3" class="gallery-image">
+                    <p>Item 3</p>
+                  </div>
+
+                  <div class="gallery-item" onclick="showInfo('Item 3', '8cm x 12cm', 0.10, 3, 3)">
+                    <img src="imagen3.jpg" alt="Imagen 3" class="gallery-image">
+                    <p>Item 3</p>
+                  </div><div class="gallery-item" onclick="showInfo('Item 3', '8cm x 12cm', 0.10, 3, 3)">
+                    <img src="imagen3.jpg" alt="Imagen 3" class="gallery-image">
+                    <p>Item 3</p>
+                  </div><div class="gallery-item" onclick="showInfo('Item 3', '8cm x 12cm', 0.10, 3, 3)">
+                    <img src="imagen3.jpg" alt="Imagen 3" class="gallery-image">
+                    <p>Item 3</p>
+                  </div><div class="gallery-item" onclick="showInfo('Item 3', '8cm x 12cm', 0.10, 3, 3)">
+                    <img src="imagen3.jpg" alt="Imagen 3" class="gallery-image">
+                    <p>Item 3</p>
+                  </div>
+                  <div class="gallery-item" onclick="showInfo('Item 3', '8cm x 12cm', 0.10, 3, 3)">
+                    <img src="imagen3.jpg" alt="Imagen 3" class="gallery-image">
+                    <p>Item 3</p>
+                  </div><div class="gallery-item" onclick="showInfo('Item 3', '8cm x 12cm', 0.10, 3, 3)">
+                    <img src="imagen3.jpg" alt="Imagen 3" class="gallery-image">
+                    <p>Item 3</p>
+                  </div><div class="gallery-item" onclick="showInfo('Item 3', '8cm x 12cm', 0.10, 3, 3)">
+                    <img src="imagen3.jpg" alt="Imagen 3" class="gallery-image">
+                    <p>Item 3</p>
+                  </div><div class="gallery-item" onclick="showInfo('Item 3', '8cm x 12cm', 0.10, 3, 3)">
+                    <img src="imagen3.jpg" alt="Imagen 3" class="gallery-image">
+                    <p>Item 3</p>
+                  </div>
+
+            </div>
+        </div>
   </div>
-  <div class="gallery-item" onclick="showInfo('Item 2', '12cm x 18cm', 0.20, 2, 8)">
-    <img src="imagen2.jpg" alt="Imagen 2" class="gallery-image">
-    <p>Item 2</p>
-  </div>
-  <div class="gallery-item" onclick="showInfo('Item 3', '8cm x 12cm', 0.10, 3, 3)">
-    <img src="imagen3.jpg" alt="Imagen 3" class="gallery-image">
-    <p>Item 3</p>
-  </div>
-</div>
+
 <script>
   document.addEventListener("DOMContentLoaded", function () {
     const resultValue = document.getElementById("result-value");
@@ -206,6 +283,9 @@
     
     imagePriceElement.textContent = `Precio: $${price}`;
   }
+ 
+  
+
 </script>
 </body>
 </html>
