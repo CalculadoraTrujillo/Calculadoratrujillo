@@ -19,9 +19,7 @@
 
   /* Estilos del contenedor de resultados */
   .result-container {
-   
-    background-color: white;
-    border-radius: 8px;
+    background-color:#0056b3;
     padding: 20px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     text-align: center;
@@ -31,6 +29,7 @@
     height: 100vh;
     left: 0;
   }
+
 
   /* Estilos de la galería de imágenes */
   .image-gallery {
@@ -126,21 +125,12 @@
 
   /* Estilos del botón de información */
   .info-button {
-    margin-top: 10px;
-    background-color: #007bff;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    padding: 8px 16px;
-    cursor: pointer;
-    transition: background-color 0.3s;
+    font-size: 12px;
     text-decoration: none;
-    display: inline-block;
-    text-align: center;
   }
 
   .info-button:hover {
-    background-color: #0056b3;
+color: #007bff;
   }
 
 
@@ -155,28 +145,34 @@
   <div class="container-fluid" style="display: grid; grid-template-columns: 1fr 1fr; width: 100%;">
         <div style="left: 0; position: fixed; width: 50%;">
           <div class="result-container">
-            <h2>Opción</h2>
-            <p>El área en metros cuadrados es:</p>
-            <p id="result-value"></p>
-            <p id="selected-image-name"></p>
-            <p id="image-measures"></p>
-            <p class="division-result"></p>
-            <p class="image-number"></p>
-            <p class="final-result"></p>
-            <p class="division-by-3"></p>
-            <p class="division-by-9"></p>
-            <p class="image-price"></p>
-            <a href="otra_pagina.html" class="info-button">Ver más información</a>
+            <h2 style="color: white;">Resultados</h2>
+            <p style="color: white;">El área en metros cuadrados es:</p>
+            <p style="color: white; font-size: 40px;" id="result-value"></p>
+            <div style="background-color: white; border-radius: 20px;">
+              <div style="padding: 12px;">
+                <p  id="selected-image-name"></p>
+                <p id="image-measures"></p>
+                <p class="division-result"></p>
+                <p class="image-number"></p>
+                <p class="final-result"></p>
+                <p class="division-by-3"></p>
+                <p class="division-by-9"></p>
+                <p class="image-price"></p>
+                <a href="otra_pagina.html" class="info-button">Ver más información</a>
+              </div>
+             
+            </div>
+           
           </div>
         </div>
           
-        <div style="position: absolute; right: 0 ;width: 50%;">
+        <div style="position: absolute; right: 0 ;width: 50%; ">
 
        
 
           <div class="image-gallery">
             
-                  <div class="gallery-item" onclick="showInfo('PISO BAKURAH GRIS 60X60 EURO', '2.16 metros', 2.16, 6, 5)">
+                  <div class="gallery-item" onclick="showInfo('PISO BAKURAH GRIS 60X60 EURO', '2.16 metros', 2.16, 6, 85.131)">
                     <img src="img/PISO BAKURAH GRIS 60X60 C2.16M EURO.jpg" alt="Imagen 1" class="gallery-image">
                     <p>PISO BAKURAH GRIS</p>
                   </div>
@@ -262,26 +258,28 @@
     const divisionBy3Element = document.querySelector(".division-by-3");
     const divisionBy9Element = document.querySelector(".division-by-9");
     const imagePriceElement = document.querySelector(".image-price");
+    const imagePriceElementotal = document.querySelector(".image-price");
     const area = parseFloat(document.getElementById("result-value").textContent);
-    selectedImageName.textContent = `Imagen seleccionada: ${name}`;
+    selectedImageName.textContent = ` ${name}`;
     imageMeasures.textContent = `Medidas de caja: ${measures}`;
     divisionResults.forEach(result => {
       const division = area / cajaRatio;
-      result.textContent = `Resultado de la división: ${Math.round(division)}`;
+      result.textContent = `Necesitas un total de: ${Math.round(division)} Cajas`;
     });
     imageNumberElements.forEach(numberElement => {
-      numberElement.textContent = `Número de imagen: ${Math.round(imageNumber)}`;
+      numberElement.textContent = `La cantidad por caja es: ${Math.round(imageNumber)} Baldosas`;
     });
     const finalResult = Math.round((area / cajaRatio) * imageNumber);
-    finalResultElement.textContent = `Resultado final: ${finalResult}`;
+    finalResultElement.textContent = `Un total de : ${finalResult} Baldosas`;
     
     const divisionBy3 = Math.round(area / 3);
-    divisionBy3Element.textContent = `División de metros cuadrados entre 3: ${divisionBy3}`;
+    divisionBy3Element.textContent = `La cantidad aproximada de pegante para instalar tu producto es de : ${divisionBy3} Sacos de 25kg`;
     
     const divisionBy9 = Math.round(area / 9);
-    divisionBy9Element.textContent = `División de metros cuadrados entre 9: ${divisionBy9} bolsas de 2kg`;
+    divisionBy9Element.textContent = `La cantidad de boquilla que necesitas para instalar tu producto es de: ${divisionBy9} Bolsas de 2kg`;
     
-    imagePriceElement.textContent = `Precio: $${price}`;
+    const totalPrice = price * Math.round((area / cajaRatio));
+  imagePriceElement.textContent = `Precio total: $${totalPrice}`;
   }
  
   
