@@ -38,8 +38,10 @@
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
-    gap: 20px;
+    gap: 10px;
+    
     position: absolute;
+    margin-top: 50px;
   }
 
   /* Estilos de cada elemento de la galería */
@@ -47,6 +49,8 @@
     text-align: center;
     cursor: pointer;
     transition: transform 0.2s;
+    width: 100%;
+    height: 100%;
   }
 
   /* Estilos de las imágenes de la galería */
@@ -136,6 +140,75 @@ color: #007bff;
 
 
   /*ESTILOS DE BUSCADOR*/
+  .overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 999;
+}
+
+.warning-container {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%, -0%);
+    background-color: rgb(240, 236, 0);
+    padding: 60px;
+    text-align: center;
+    z-index: 1000;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 22px;
+    font-family: "Poppins", sans-serif;
+    line-height: 1.5;
+  }
+
+  @media (max-width: 927px) {
+  .warning-container {
+          padding: 40px;
+      }
+  }
+
+  @media (max-width: 628px) {
+  .warning-container {
+    padding: 30px;
+    }
+  }
+
+  @media (max-width: 583px) {
+    .warning-container {
+    width: 100%;
+    height: 100vh;
+    margin: auto;
+    justify-content: center;
+    align-items: center;
+    align-self: center;
+    }
+    .warning-container div p {
+  
+    justify-content: center;
+    align-items: center;
+    align-self: center;
+    }
+    .warning-container div {
+      height: 300px;
+      margin-top: 50%;
+     }
+  }
+
+#close-button {
+    background-color: #333;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
 
   /*FIN DE ESTILOS DE BUSCADOR*/
 </style>
@@ -147,7 +220,7 @@ color: #007bff;
           <div class="result-container">
             <h2 style="color: white;">Resultados</h2>
             <p style="color: white;">El área en metros cuadrados es:</p>
-            <p style="color: white; font-size: 40px;" id="result-value"></p>
+            <p style="color: rgb(251, 255, 0); font-size: 40px;" id="result-value"></p>
             <div style="background-color: white; border-radius: 20px;">
               <div style="padding: 12px;">
                 <p  id="selected-image-name"></p>
@@ -166,13 +239,13 @@ color: #007bff;
           </div>
         </div>
           
-        <div style="position: absolute; right: 0 ;width: 50%; ">
+        <div style="position: absolute; right: 0 ;width: 50%; margin: auto; ">
 
        
 
-          <div class="image-gallery">
+          <div class="image-gallery container-fluid">
             
-                  <div class="gallery-item" onclick="showInfo('PISO BAKURAH GRIS 60X60 EURO', '2.16 metros', 2.16, 6, 85.131)">
+                  <div class="gallery-item" onclick="showInfo('Piso Bakurah gris 60x60 Euroceramica', '2.16 metros', 2.16, 6, 85131)">
                     <img src="img/PISO BAKURAH GRIS 60X60 C2.16M EURO.jpg" alt="Imagen 1" class="gallery-image">
                     <p>PISO BAKURAH GRIS</p>
                   </div>
@@ -241,6 +314,16 @@ color: #007bff;
         </div>
   </div>
 
+  <div id="background-overlay" class="overlay" onclick="closeWarning()"></div>
+    <div id="warning-message" class="warning-container">
+      <div>
+        <p><span style="font-weight: 700;">¡Importante!</span> Asegúrese de elegir cuidadosamente la imagen de la cerámica y tenga en cuenta que en el lado izquierdo 
+          se encuentra la información sobre los materiales necesarios y la cantidad en metros cuadrados requerida.</p>
+        <button id="close-button" onclick="closeWarning()">Cerrar</button>
+      </div>
+        
+    </div>
+
 <script>
   document.addEventListener("DOMContentLoaded", function () {
     const resultValue = document.getElementById("result-value");
@@ -248,6 +331,9 @@ color: #007bff;
     resultValue.textContent = parseInt(area);
     localStorage.removeItem("area");
   });
+  function formatPrice(price) {
+    return price.toLocaleString('es', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+  }
 
   function showInfo(name, measures, cajaRatio, imageNumber, price) {
     const selectedImageName = document.getElementById("selected-image-name");
@@ -256,6 +342,7 @@ color: #007bff;
     const imageNumberElements = document.querySelectorAll(".image-number");
     const finalResultElement = document.querySelector(".final-result");
     const divisionBy3Element = document.querySelector(".division-by-3");
+    const divisionBy3Image = document.getElementById("division-by-3-image");
     const divisionBy9Element = document.querySelector(".division-by-9");
     const imagePriceElement = document.querySelector(".image-price");
     const imagePriceElementotal = document.querySelector(".image-price");
@@ -279,8 +366,30 @@ color: #007bff;
     divisionBy9Element.textContent = `La cantidad de boquilla que necesitas para instalar tu producto es de: ${divisionBy9} Bolsas de 2kg`;
     
     const totalPrice = price * Math.round((area / cajaRatio));
-  imagePriceElement.textContent = `Precio total: $${totalPrice}`;
+    imagePriceElement.textContent = `Precio total: $${formatPrice(totalPrice)}`; 
   }
+
+  /**advertencia*/
+  function closeWarning() {
+    const warningContainer = document.getElementById("warning-message");
+    const overlay = document.getElementById("background-overlay");
+    
+    warningContainer.style.display = "none";
+    overlay.style.display = "none";
+}
+
+document.addEventListener("DOMContentLoaded", function() {
+    const warningContainer = document.getElementById("warning-message");
+    const overlay = document.getElementById("background-overlay");
+
+    warningContainer.style.display = "block";
+    overlay.style.display = "block";
+});
+
+/**fin de advertencia*/ 
+
+
+  
  
   
 

@@ -1,0 +1,269 @@
+
+ /**
+* Template Name: iPortfolio
+* Updated: Jul 27 2023 with Bootstrap v5.3.1
+* Template URL: https://bootstrapmade.com/iportfolio-bootstrap-portfolio-websites-template/
+* Author: BootstrapMade.com
+* License: https://bootstrapmade.com/license/
+*/
+
+/*--------------------------------------------------------------
+# General
+--------------------------------------------------------------*/
+body{
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    width: 100%;
+    background-image: url(../img/Recurso\ 1.png);
+    background-repeat: no-repeat;
+    background-size:auto 100vh;
+    font-family: "Poppins", sans-serif;
+  }
+  a {
+    color: #149ddd;
+    text-decoration: none;
+  }
+  
+  a:hover {
+    color: #37b3ed;
+    text-decoration: none;
+  }
+  
+  
+  /*--------------------------------------------------------------
+  # Back to top button
+  --------------------------------------------------------------*/
+  .back-to-top {
+    position: fixed;
+    visibility: hidden;
+    opacity: 0;
+    right: 15px;
+    bottom: 15px;
+    z-index: 996;
+    background: #149ddd;
+    width: 40px;
+    height: 40px;
+    border-radius: 50px;
+    transition: all 0.4s;
+  }
+  
+  .back-to-top i {
+    font-size: 28px;
+    color: #fff;
+    line-height: 0;
+  }
+  
+  .back-to-top:hover {
+    background: #2eafec;
+    color: #fff;
+  }
+  
+  .back-to-top.active {
+    visibility: visible;
+    opacity: 1;
+  }
+  
+  
+  /*--------------------------------------------------------------
+  # Header
+  --------------------------------------------------------------*/
+  #header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 400px;
+    transition: all ease-in-out 0.5s;
+    z-index: 50;
+    transition: all 0.5s;
+    background: linear-gradient(rgb(87, 87, 255), rgb(41, 26, 177));
+    overflow-y: auto;
+    display: none;
+    
+  }
+  
+  
+  @media (max-width: 547px) {
+      #header{
+              width: 100%;
+          }
+  }
+  #header .profile img {
+    margin: 15px auto;
+    display: block;
+    width: 120px;
+    border: 8px solid #2c2f3f;
+  }
+  
+  #header .profile h1 {
+    font-size: 24px;
+    margin: 0;
+    padding: 0;
+    font-weight: 600;
+    -moz-text-align-last: center;
+    text-align-last: center;
+    font-family: "Poppins", sans-serif;
+  }
+  
+  #header .profile h1 a,
+  #header .profile h1 a:hover {
+    color: #fff;
+    text-decoration: none;
+  }
+  
+  #header .profile .social-links a {
+    font-size: 18px;
+    display: inline-block;
+    background: #212431;
+    color: #fff;
+    line-height: 1;
+    padding: 8px 0;
+    margin-right: 4px;
+    border-radius: 50%;
+    text-align: center;
+    width: 36px;
+    height: 36px;
+    transition: 0.3s;
+  }
+  
+  #header .profile .social-links a:hover {
+    background: #149ddd;
+    color: #fff;
+    text-decoration: none;
+  }
+  
+  #main {
+    margin-left: 300px;
+  }
+  
+  .container,
+  .container-fluid {
+    padding-left: 30px;
+    padding-right: 30px;
+  }
+  
+  
+  
+  /***************//***********************/
+  /***********Estilos calculadora***/
+  /*****************//********************/
+  
+  
+  .hero-calculadora{
+    justify-content: center;
+    justify-self: center;
+    height: 100vh;
+  }
+  
+  .calculator {
+    background-color: white;
+    margin: auto;
+    border-radius: 12px;
+    padding: 20px;
+    text-align: center;
+    margin: 0px 12px;
+    margin-top: 22px;
+  
+  }
+  
+  .calculator h1 {
+    font-size: 20px;
+    font-weight: 800;
+    color: #193686;
+  }
+  
+  label {
+    display: block;
+    margin-top: 10px;
+    font-size: 15px;
+    color: #193686;;
+    font-weight: 500;
+    width: 80%;
+    margin: auto;
+  }
+  #calculator-form{
+    width: 100%;
+    justify-content: center;
+    margin-bottom: 20px;
+  }
+  #calculator-form input {
+    width: 50%;
+    padding: 8px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    
+  }
+  
+  input {
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    
+  }
+  #editable-result {
+    width: 30%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin: auto;
+    height: 22px;
+    background-color: #ffffff;
+    font-family: "Poppins", sans-serif;
+  }
+  
+  #final-result {
+    width: 30%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: #f0f0f0;
+    cursor: not-allowed;
+    margin: auto;
+    height: 22px;
+   margin-bottom: 0px;
+    font-family: "Poppins", sans-serif;
+  }
+  
+  .checkbox-container {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    margin-top: 20px;
+  }
+  
+  #calculate-button {
+    margin-top: 20px;
+    padding: 12px 25px;
+    background-color: #007bff;
+    color: white;
+    border: 1px solid #007bff;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 500ms ease;
+  }
+  #calculate-button:hover {
+    margin-top: 20px;
+    padding: 12px 25px;
+    background-color: rgba(0, 0, 0, 0);
+    color: #007bff;
+    border: 1px solid #007bff;
+    box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.1);
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  .contenedor-de-resultados-metros-cuadrados{
+      display: flex;
+      background-color: #f1f1f1;
+      padding: 12px 50px;
+  }
+  .checkbox-container{
+      line-height: 1;
+  
+  }
+  /*fin de calculadora*/
+  
+  
