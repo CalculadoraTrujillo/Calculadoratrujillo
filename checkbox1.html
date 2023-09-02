@@ -1,398 +1,170 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Opción</title>
-<style>
-  /* Estilos generales */
-  body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    min-height: 100vh;
-    background-color: #f0f0f0;
-  }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Opción</title>
+    <link rel="stylesheet" href="css/estiloscheckbox.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/mostrarimagenes.css">
 
-  /* Estilos del contenedor de resultados */
-  .result-container {
-    background-color:#0056b3;
-    padding: 20px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    text-align: center;
-    margin-bottom: 20px;
-    width: 80%;
-    max-width: 400px;
-    height: 100vh;
-    left: 0;
-  }
-
-
-  /* Estilos de la galería de imágenes */
-  .image-gallery {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 10px;
-    
-    position: absolute;
-    margin-top: 50px;
-  }
-
-  /* Estilos de cada elemento de la galería */
-  .gallery-item {
-    text-align: center;
-    cursor: pointer;
-    transition: transform 0.2s;
-    width: 100%;
-    height: 100%;
-  }
-
-  /* Estilos de las imágenes de la galería */
-  .gallery-image {
-    max-width: 100px;
-    max-height: 100px;
-    border-radius: 4px;
-    transition: transform 0.2s;
-  }
-
-  .gallery-item:hover .gallery-image {
-    transform: scale(1.1);
-  }
-
-  /* Estilos para los títulos y texto */
-  h2 {
-    margin-bottom: 10px;
-    color: #333;
-  }
-
-  #result-value {
-    font-size: 24px;
-    font-weight: bold;
-    margin-top: 10px;
-    color: #007bff;
-  }
-
-  #selected-image-name {
-    margin-top: 10px;
-    font-weight: bold;
-    color: #333;
-  }
-
-  #image-measures {
-    margin-top: 5px;
-    color: #555;
-  }
-
-  .division-result {
-    margin-top: 5px;
-    font-size: 14px;
-    color: #888;
-  }
-
-  .image-number {
-    font-weight: bold;
-    font-size: 18px;
-    margin-top: 10px;
-    color: #007bff;
-  }
-
-  .final-result {
-    font-weight: bold;
-    font-size: 20px;
-    margin-top: 20px;
-    color: #007bff;
-  }
-
-  .division-by-3 {
-    font-size: 16px;
-    color: #555;
-    margin-top: 10px;
-  }
-
-  .division-by-9 {
-    font-size: 16px;
-    color: #555;
-    margin-top: 10px;
-  }
-
-  .image-price {
-    font-size: 16px;
-    margin-top: 5px;
-    color: #555;
-  }
-
-  /* Estilos del botón de información */
-  .info-button {
-    font-size: 12px;
-    text-decoration: none;
-  }
-
-  .info-button:hover {
-color: #007bff;
-  }
-
-
-
-  /*ESTILOS DE BUSCADOR*/
-  .overlay {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
-    z-index: 999;
-}
-
-.warning-container {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 50%;
-    transform: translate(-50%, -0%);
-    background-color: rgb(240, 236, 0);
-    padding: 60px;
-    text-align: center;
-    z-index: 1000;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-    border-bottom-left-radius: 20px;
-    border-bottom-right-radius: 22px;
-    font-family: "Poppins", sans-serif;
-    line-height: 1.5;
-  }
-
-  @media (max-width: 927px) {
-  .warning-container {
-          padding: 40px;
-      }
-  }
-
-  @media (max-width: 628px) {
-  .warning-container {
-    padding: 30px;
-    }
-  }
-
-  @media (max-width: 583px) {
-    .warning-container {
-    width: 100%;
-    height: 100vh;
-    margin: auto;
-    justify-content: center;
-    align-items: center;
-    align-self: center;
-    }
-    .warning-container div p {
-  
-    justify-content: center;
-    align-items: center;
-    align-self: center;
-    }
-    .warning-container div {
-      height: 300px;
-      margin-top: 50%;
-     }
-  }
-
-#close-button {
-    background-color: #333;
-    color: white;
-    border: none;
-    padding: 5px 10px;
-    cursor: pointer;
-}
-
-
-  /*FIN DE ESTILOS DE BUSCADOR*/
-</style>
 </head>
 <body>
+ <!-------------------------------------------><!---------------------------------------><!------------------------------------------->
+  <!-------------------------------------------><!--CONTENEDOR DE TODA LA PAGINA--><!------------------------------------------->
+  <!-------------------------------------------><!---------------------------------------><!------------------------------------------->
+  <div class="container-fluid contenedor-de-toda-la-pagina"> 
 
-  <div class="container-fluid" style="display: grid; grid-template-columns: 1fr 1fr; width: 100%;">
-        <div style="left: 0; position: fixed; width: 50%;">
-          <div class="result-container">
-            <h2 style="color: white;">Resultados</h2>
-            <p style="color: white;">El área en metros cuadrados es:</p>
-            <p style="color: rgb(251, 255, 0); font-size: 40px;" id="result-value"></p>
-            <div style="background-color: white; border-radius: 20px;">
-              <div style="padding: 12px;">
-                <p  id="selected-image-name"></p>
-                <p id="image-measures"></p>
-                <p class="division-result"></p>
-                <p class="image-number"></p>
-                <p class="final-result"></p>
-                <p class="division-by-3"></p>
-                <p class="division-by-9"></p>
-                <p class="image-price"></p>
-                <a href="otra_pagina.html" class="info-button">Ver más información</a>
-              </div>
-             
-            </div>
-           
-          </div>
-        </div>
+        <div class="contenedor-principal-resultados" >  <!--CONTENEDOR 1 (RESULTADOS)-->                                       
+                    <div class="result-container">
+                            <h2 style="color: white;">Resultados</h2>
+                          
+                            <div class="contenedor-de-todos-los-resultados">  <!--Inicio de resultados-->   
+
+                                      <div class="Imagen-y-area-metros-cuadrados" > <!--Imagen y area metros cuadrados-->
+                                              <img id="selected-image" class="img-fluid" src="" alt="Imagen seleccionada" >
+                                              <div class="contenedor-area-metros-cuadrados">
+                                                <p >El área en metros cuadrados es:</p>
+                                                <p style="color: rgb(0, 14, 136); font-size: 30px;" id="result-value"></p>
+                                                <p class="image-price"></p>
+                                              </div>
+                                      </div><!--Fin de Imagen y area metros cuadrados-->
+                                        
+                                      <p id="selected-image-name"></p> <!--Nombre de articulo-->
+
+                                      <div style="padding: 22px; text-align: left; font-family: Poppins, sans-serif;"> <!--Resultados fisicos-->
+                                            <p id="image-measures"></p>
+                                            <p class="division-result"></p>
+                                            <p class="image-number"></p>
+                                            <p class="final-result"></p>
+                                            <div class="container-fluid" style="display: flex; margin-top: 8px; background-color: beige; padding: 12px 8px; width: 100%;">
+                                              <div style="width: 20vw;"> <img src="img/pegantes.png" class="img-cerrar img-fluid" width="50px" alt=""></div>
+                                              <div style="width: 100vw;"><p class="division-by-3"></p></div>
+                                            </div>
+                                            <div class="" style="display: flex; margin-top: 8px; background-color: beige; padding: 12px 8px; width: 100%;">
+                                              <div style="width: 20vw;"> <img src="img/BOQUILLAS.png" class="img-cerrar img-fluid" width="50px" alt=""></div>
+                                              <div style="width: 100vw;"><p class="division-by-9"></p></div>
+                                            </div>
+                                            
+                                            <a href="otra_pagina.html" class="info-button">Ver más información</a>
+                                      </div><!-- FIN DE Resultados fisicos-->
+                                    
+                            </div><!--fin de Inicio de resultados-->   
+                    </div>
+        </div><!--FIN DE CONTENEDOR 1 (RESULTADOS)-->  
           
-        <div style="position: absolute; right: 0 ;width: 50%; margin: auto; ">
+        <div style="position: absolute; right: 0 ;width: 60%; margin: auto; ">
 
        
 
           <div class="image-gallery container-fluid">
+            <div class="container">
             
-                  <div class="gallery-item" onclick="showInfo('Piso Bakurah gris 60x60 Euroceramica', '2.16 metros', 2.16, 6, 85131)">
-                    <img src="img/PISO BAKURAH GRIS 60X60 C2.16M EURO.jpg" alt="Imagen 1" class="gallery-image">
-                    <p>PISO BAKURAH GRIS</p>
-                  </div>
-                  <div class="gallery-item" onclick="showInfo('Item 2', '12cm x 18cm', 0.20, 2, 8)">
-                    <img src="img/PISO BAKURAH GRIS 60X60 C2.16M EURO.jpg" alt="Imagen 2" class="gallery-image">
-                    <p>Item 2</p>
-                  </div>
-                  <div class="gallery-item" onclick="showInfo('Item 3', '8cm x 12cm', 0.10, 3, 3)">
-                    <img src="img/PISO BAKURAH GRIS 60X60 C2.16M EURO.jpg" alt="Imagen 3" class="gallery-image">
-                    <p>Item 3</p>
-                  </div>
-                  <div class="gallery-item" onclick="showInfo('Item 3', '8cm x 12cm', 0.10, 3, 3)">
-                    <img src="img/PISO BAKURAH GRIS 60X60 C2.16M EURO.jpg" alt="Imagen 3" class="gallery-image">
-                    <p>Item 3</p>
-                  </div>
-                  <div class="gallery-item" onclick="showInfo('Item 3', '8cm x 12cm', 0.10, 3, 3)">
-                    <img src="img/PISO BAKURAH GRIS 60X60 C2.16M EURO.jpg" alt="Imagen 3" class="gallery-image">
-                    <p>Item 3</p>
-                  </div>
-                  <div class="gallery-item" onclick="showInfo('Item 3', '8cm x 12cm', 0.10, 3, 3)">
-                    <img src="img/PISO BAKURAH GRIS 60X60 C2.16M EURO.jpg" alt="Imagen 3" class="gallery-image">
-                    <p>Item 3</p>
-                  </div>
-                  <div class="gallery-item" onclick="showInfo('Item 3', '8cm x 12cm', 0.10, 3, 3)">
-                    <img src="img/PISO BAKURAH GRIS 60X60 C2.16M EURO.jpg" alt="Imagen 3" class="gallery-image">
-                    <p>Item 3</p>
-                  </div>
-                  <div class="gallery-item" onclick="showInfo('Item 3', '8cm x 12cm', 0.10, 3, 3)">
-                    <img src="img/PISO BAKURAH GRIS 60X60 C2.16M EURO.jpg" alt="Imagen 3" class="gallery-image">
-                    <p>Item 3</p>
-                  </div>
+              <h1>Galería de Imágenes</h1>
+              <div class="contenedor">
+                  <button class="boton" onclick="mostrarImagenes(1)">Botón 1</button>
+                  <button class="boton" onclick="mostrarImagenes(2)">Botón 2</button>
+                  <button class="boton" onclick="mostrarImagenes(3)">Botón 3</button>
+                  <button class="boton" onclick="mostrarImagenes(4)">Botón 4</button>
+                  <button class="boton" onclick="mostrarImagenes(5)">Botón 5</button>
+              </div>
+              <div class="galeria" id="galeria">
 
-                  <div class="gallery-item" onclick="showInfo('Item 3', '8cm x 12cm', 0.10, 3, 3)">
-                    <img src="img/PISO BAKURAH GRIS 60X60 C2.16M EURO.jpg" alt="Imagen 3" class="gallery-image">
-                    <p>Item 3</p>
-                  </div>
+                    <!-- Todas las tarjetas se encuentran aquí en el HTML -->
+                    <div class="card" data-boton="1">
+                          <div class="gallery-item" onclick="showInfo('Piso Barranquilla negro Euroceramica', '1.50 metros', 1.50, 6, 55228, 'img/ceramica/BARRANQUILLA-NEGRO-50X50 .jpg')">
+                              <div class="contenedor-modal-gallery-item" style="justify-content: center;">
+                                <img src="img/ceramica/BARRANQUILLA-NEGRO-50X50 .jpg" alt="Imagen 1" class="gallery-image"> 
+                                <!-- Button trigger modal -->
+                                        <button type="button" style="background-color: rgba(0, 0, 0, 0); width: 20px; height: 20px; border: 0px; padding: 0px; margin-left: 15px;" class="" data-bs-toggle="modal" data-bs-target="#exampleModal2">
+                                          <img src="img/zoom.png" class="" width="100%" height="100%" alt="">
+                                        </button>
 
-                  <div class="gallery-item" onclick="showInfo('Item 3', '8cm x 12cm', 0.10, 3, 3)">
-                    <img src="imagen3.jpg" alt="Imagen 3" class="gallery-image">
-                    <p>Item 3</p>
-                  </div><div class="gallery-item" onclick="showInfo('Item 3', '8cm x 12cm', 0.10, 3, 3)">
-                    <img src="imagen3.jpg" alt="Imagen 3" class="gallery-image">
-                    <p>Item 3</p>
-                  </div><div class="gallery-item" onclick="showInfo('Item 3', '8cm x 12cm', 0.10, 3, 3)">
-                    <img src="imagen3.jpg" alt="Imagen 3" class="gallery-image">
-                    <p>Item 3</p>
-                  </div><div class="gallery-item" onclick="showInfo('Item 3', '8cm x 12cm', 0.10, 3, 3)">
-                    <img src="imagen3.jpg" alt="Imagen 3" class="gallery-image">
-                    <p>Item 3</p>
-                  </div>
-                  <div class="gallery-item" onclick="showInfo('Item 3', '8cm x 12cm', 0.10, 3, 3)">
-                    <img src="imagen3.jpg" alt="Imagen 3" class="gallery-image">
-                    <p>Item 3</p>
-                  </div><div class="gallery-item" onclick="showInfo('Item 3', '8cm x 12cm', 0.10, 3, 3)">
-                    <img src="imagen3.jpg" alt="Imagen 3" class="gallery-image">
-                    <p>Item 3</p>
-                  </div><div class="gallery-item" onclick="showInfo('Item 3', '8cm x 12cm', 0.10, 3, 3)">
-                    <img src="imagen3.jpg" alt="Imagen 3" class="gallery-image">
-                    <p>Item 3</p>
-                  </div><div class="gallery-item" onclick="showInfo('Item 3', '8cm x 12cm', 0.10, 3, 3)">
-                    <img src="imagen3.jpg" alt="Imagen 3" class="gallery-image">
-                    <p>Item 3</p>
-                  </div>
+                                        <!-- Modal -->
+                                        <div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                          <div class="modal-dialog">
+                                            <div class="modal-content" style="background-color: rgba(0, 0, 0, 0); border: 0;">
+                                              <div class="modal-header" style="border: 0px;">
+                                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                              </div>
+                                              <div class="modal-body " >
+                                                <img src="img/ceramica/BARRANQUILLA-NEGRO-50X50 .jpg" class="img-fluid" alt="">
+                                              </div>
+                                            </div>
+                                          </div>
+                                        </div> 
+                                <!-- FIN Button trigger modal -->
+                              </div>
+                               <p style="font-family: Poppins, sans-serif;">Piso Bakurah gris</p>
+                            </div>
+                    </div><!--fin -->
 
+                    <div class="card" data-boton="2">
+                      <div class="gallery-item" onclick="showInfo('Piso Barranquilla negro Euroceramica', '1.50 metros', 1.50, 6, 55228, 'img/ceramica/BARRANQUILLA-NEGRO-50X50 .jpg')">
+                        <div class="contenedor-modal-gallery-item" style="justify-content: center;">
+                          <img src="img/ceramica/BARRANQUILLA-NEGRO-50X50 .jpg" alt="Imagen 1" class="gallery-image"> 
+                          <!-- Button trigger modal -->
+                                  <button type="button" style="background-color: rgba(0, 0, 0, 0); width: 20px; height: 20px; border: 0px; padding: 0px; margin-left: 15px;" class="" data-bs-toggle="modal" data-bs-target="#exampleModal2">
+                                    <img src="img/zoom.png" class="" width="100%" height="100%" alt="">
+                                  </button>
+    
+                                  <!-- Modal -->
+                                  <div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog">
+                                      <div class="modal-content" style="background-color: rgba(0, 0, 0, 0); border: 0;">
+                                        <div class="modal-header" style="border: 0px;">
+                                          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                        </div>
+                                        <div class="modal-body " >
+                                          <img src="img/ceramica/BARRANQUILLA-NEGRO-50X50 .jpg" class="img-fluid" alt="">
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div> 
+                           <!-- FIN Button trigger modal -->
+                        </div>
+                        <p style="font-family: Poppins, sans-serif;">Piso Bakurah gris</p>
+                  </div><!--fin -->
+                    </div>
+                    <div class="card" data-boton="3">
+                        <img class="imagen" src="imagen3.jpg" alt="Imagen 3">
+                        <div class="card-title">Imagen 3</div>
+                    </div>
+                    <!-- Tarjetas para otros botones -->
+                    <div class="card" data-boton="2">
+                        <img class="imagen" src="imagen4.jpg" alt="Imagen 4">
+                        <div class="card-title">Imagen 4</div>
+                    </div>
+                    <div class="card" data-boton="3">
+                        <img class="imagen" src="imagen5.jpg" alt="Imagen 5">
+                        <div class="card-title">Imagen 5</div>
+                    </div>
+                    <!-- Agrega más tarjetas para otros botones aquí -->
+                </div>
+           
+                  
+                 </div>
             </div>
+            
         </div>
-  </div>
+  </div> 
+  <!-------------------------------------------><!---------------------------------------><!------------------------------------------->
+  <!-------------------------------------------><!--FIN DE CONTENEDOR DE TODA LA PAGINA--><!------------------------------------------->
+  <!-------------------------------------------><!---------------------------------------><!------------------------------------------->
 
   <div id="background-overlay" class="overlay" onclick="closeWarning()"></div>
     <div id="warning-message" class="warning-container">
       <div>
-        <p><span style="font-weight: 700;">¡Importante!</span> Asegúrese de elegir cuidadosamente la imagen de la cerámica y tenga en cuenta que en el lado izquierdo 
-          se encuentra la información sobre los materiales necesarios y la cantidad en metros cuadrados requerida.</p>
         <button id="close-button" onclick="closeWarning()">Cerrar</button>
       </div>
         
     </div>
 
-<script>
-  document.addEventListener("DOMContentLoaded", function () {
-    const resultValue = document.getElementById("result-value");
-    const area = localStorage.getItem("area");
-    resultValue.textContent = parseInt(area);
-    localStorage.removeItem("area");
-  });
-  function formatPrice(price) {
-    return price.toLocaleString('es', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
-  }
-
-  function showInfo(name, measures, cajaRatio, imageNumber, price) {
-    const selectedImageName = document.getElementById("selected-image-name");
-    const imageMeasures = document.getElementById("image-measures");
-    const divisionResults = document.querySelectorAll(".division-result");
-    const imageNumberElements = document.querySelectorAll(".image-number");
-    const finalResultElement = document.querySelector(".final-result");
-    const divisionBy3Element = document.querySelector(".division-by-3");
-    const divisionBy3Image = document.getElementById("division-by-3-image");
-    const divisionBy9Element = document.querySelector(".division-by-9");
-    const imagePriceElement = document.querySelector(".image-price");
-    const imagePriceElementotal = document.querySelector(".image-price");
-    const area = parseFloat(document.getElementById("result-value").textContent);
-    selectedImageName.textContent = ` ${name}`;
-    imageMeasures.textContent = `Medidas de caja: ${measures}`;
-    divisionResults.forEach(result => {
-      const division = area / cajaRatio;
-      result.textContent = `Necesitas un total de: ${Math.round(division)} Cajas`;
-    });
-    imageNumberElements.forEach(numberElement => {
-      numberElement.textContent = `La cantidad por caja es: ${Math.round(imageNumber)} Baldosas`;
-    });
-    const finalResult = Math.round((area / cajaRatio) * imageNumber);
-    finalResultElement.textContent = `Un total de : ${finalResult} Baldosas`;
     
-    const divisionBy3 = Math.round(area / 3);
-    divisionBy3Element.textContent = `La cantidad aproximada de pegante para instalar tu producto es de : ${divisionBy3} Sacos de 25kg`;
-    
-    const divisionBy9 = Math.round(area / 9);
-    divisionBy9Element.textContent = `La cantidad de boquilla que necesitas para instalar tu producto es de: ${divisionBy9} Bolsas de 2kg`;
-    
-    const totalPrice = price * Math.round((area / cajaRatio));
-    imagePriceElement.textContent = `Precio total: $${formatPrice(totalPrice)}`; 
-  }
 
-  /**advertencia*/
-  function closeWarning() {
-    const warningContainer = document.getElementById("warning-message");
-    const overlay = document.getElementById("background-overlay");
-    
-    warningContainer.style.display = "none";
-    overlay.style.display = "none";
-}
+    <script src="js/jscheckbox.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/mostrarimagnes.js"></script>
 
-document.addEventListener("DOMContentLoaded", function() {
-    const warningContainer = document.getElementById("warning-message");
-    const overlay = document.getElementById("background-overlay");
-
-    warningContainer.style.display = "block";
-    overlay.style.display = "block";
-});
-
-/**fin de advertencia*/ 
-
-
-  
- 
-  
-
-</script>
 </body>
 </html>
