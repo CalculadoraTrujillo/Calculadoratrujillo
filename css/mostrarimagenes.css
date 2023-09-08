@@ -1,11 +1,15 @@
 .container {
     text-align: center;
-    margin-top: 20px;
+   padding-top: 22px;
     position: absolute;
     left: 0;
-    width: 90%;
+    width: 100%;
     top: 0;
-    margin: auto;
+    background-color: #f8f8f8;
+}
+.container h1 {
+    font-family: "Poppins", sans-serif;
+    font-size: 30px;
 }
 
 .contenedor {
@@ -38,9 +42,11 @@
 }
 
 .card {
-    width: 100%;
+    width: 80%;
     border: 0px;
+    margin: auto;
     transition: transform 0.3s ease-in-out;
+    box-shadow: 4px 4px 40px 10px rgba(0, 0, 0, 0.1);
 }
 
 

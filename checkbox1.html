@@ -17,12 +17,12 @@
 
         <div class="contenedor-principal-resultados" >  <!--CONTENEDOR 1 (RESULTADOS)-->                                       
                     <div class="result-container">
-                            <h2 style="color: white;">Resultados</h2>
+                            <h2>Resultados</h2>
                           
                             <div class="contenedor-de-todos-los-resultados">  <!--Inicio de resultados-->   
 
                                       <div class="Imagen-y-area-metros-cuadrados" > <!--Imagen y area metros cuadrados-->
-                                              <img id="selected-image" class="img-fluid" src="" alt="Imagen seleccionada" >
+                                              <img id="selected-image" class="img-fluid" src="img/BOQUILLAS.png" alt="Imagen seleccionada" >
                                               <div class="contenedor-area-metros-cuadrados">
                                                 <p >El área en metros cuadrados es:</p>
                                                 <p style="color: rgb(0, 14, 136); font-size: 30px;" id="result-value"></p>
@@ -40,6 +40,9 @@
                                             <div class="container-fluid" style="display: flex; margin-top: 8px; background-color: beige; padding: 12px 8px; width: 100%;">
                                               <div style="width: 20vw;"> <img src="img/pegantes.png" class="img-cerrar img-fluid" width="50px" alt=""></div>
                                               <div style="width: 100vw;"><p class="division-by-3"></p></div>
+                                              <span class="d-inline-block" tabindex="0" data-bs-toggle="tooltip" title="El valor es uno aproximado">
+                                                <img class="btn-informacion-precio" src="img/boton-de-informacion.png" aria-disabled="false" alt="">
+                                              </span>
                                             </div>
                                             <div class="" style="display: flex; margin-top: 8px; background-color: beige; padding: 12px 8px; width: 100%;">
                                               <div style="width: 20vw;"> <img src="img/BOQUILLAS.png" class="img-cerrar img-fluid" width="50px" alt=""></div>
@@ -53,14 +56,21 @@
                     </div>
         </div><!--FIN DE CONTENEDOR 1 (RESULTADOS)-->  
           
-        <div style="position: absolute; right: 0 ;width: 60%; margin: auto; ">
+        <div class="contenedor-secundario-resultados">
 
        
-
+          <div class="container-cover">
+            <div class="container-cover-sub">
+              <h1 class="">Cerámica <img src="img/ceramica.png" width="35px" alt=""> </h1>
+              <span>Desliza hacia abajo para ver la galeria</span>
+            </div>
+              
+          </div>
           <div class="image-gallery container-fluid">
-            <div class="container">
+           
+            <div class="container container-lg">
             
-              <h1>Galería de Imágenes</h1>
+              <h1>Selecciona uno de los ambientes que desea consultar</h1>
               <div class="contenedor">
                   <button class="boton" onclick="mostrarImagenes(1)">Botón 1</button>
                   <button class="boton" onclick="mostrarImagenes(2)">Botón 2</button>
@@ -76,12 +86,12 @@
                               <div class="contenedor-modal-gallery-item" style="justify-content: center;">
                                 <img src="img/ceramica/BARRANQUILLA-NEGRO-50X50 .jpg" alt="Imagen 1" class="gallery-image"> 
                                 <!-- Button trigger modal -->
-                                        <button type="button" style="background-color: rgba(0, 0, 0, 0); width: 20px; height: 20px; border: 0px; padding: 0px; margin-left: 15px;" class="" data-bs-toggle="modal" data-bs-target="#exampleModal2">
+                                        <button type="button" style="background-color: rgba(0, 0, 0, 0); width: 20px; height: 20px; border: 0px; padding: 0px; margin-left: 15px;" class="" data-bs-toggle="modal" data-bs-target="#exampleModal">
                                           <img src="img/zoom.png" class="" width="100%" height="100%" alt="">
                                         </button>
 
                                         <!-- Modal -->
-                                        <div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                           <div class="modal-dialog">
                                             <div class="modal-content" style="background-color: rgba(0, 0, 0, 0); border: 0;">
                                               <div class="modal-header" style="border: 0px;">
@@ -100,9 +110,9 @@
                     </div><!--fin -->
 
                     <div class="card" data-boton="2">
-                      <div class="gallery-item" onclick="showInfo('Piso Barranquilla negro Euroceramica', '1.50 metros', 1.50, 6, 55228, 'img/ceramica/BARRANQUILLA-NEGRO-50X50 .jpg')">
+                      <div class="gallery-item" onclick="showInfo('Piso Barranquilla negro Euroceramica', '1.50 metros', 1.50, 6, 45899, 'img/ceramica/PISO SAN BERNARDO 50X50 C1.50M  EURO.jpg')">
                         <div class="contenedor-modal-gallery-item" style="justify-content: center;">
-                          <img src="img/ceramica/BARRANQUILLA-NEGRO-50X50 .jpg" alt="Imagen 1" class="gallery-image"> 
+                          <img src="img/ceramica/PISO SAN BERNARDO 50X50 C1.50M  EURO.jpg" alt="Imagen 1" class="gallery-image"> 
                           <!-- Button trigger modal -->
                                   <button type="button" style="background-color: rgba(0, 0, 0, 0); width: 20px; height: 20px; border: 0px; padding: 0px; margin-left: 15px;" class="" data-bs-toggle="modal" data-bs-target="#exampleModal2">
                                     <img src="img/zoom.png" class="" width="100%" height="100%" alt="">
@@ -116,7 +126,7 @@
                                           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                         </div>
                                         <div class="modal-body " >
-                                          <img src="img/ceramica/BARRANQUILLA-NEGRO-50X50 .jpg" class="img-fluid" alt="">
+                                          <img src="img/ceramica/PISO SAN BERNARDO 50X50 C1.50M  EURO.jpg" class="img-fluid" alt="">
                                         </div>
                                       </div>
                                     </div>
