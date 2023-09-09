@@ -1,0 +1,77 @@
+.boton-fijo {
+    position: fixed;
+    top: 50%;
+    right: 0px; /* Ajusta la posición derecha según tus necesidades */
+    transform: translateY(-50%);
+    z-index: 999;
+}
+
+#mi-boton {
+    transition: all 300ms ease;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 16px;
+    width: 90px;
+}
+
+#mi-boton:hover {
+    opacity: 0.6;
+}
+
+.contenedor-input {
+    display: none; /* Inicialmente oculto */
+    position: fixed;
+    top: 50%;
+    right: 100px; /* Ajusta la posición derecha para aumentar la separación */
+    transform: translateY(-50%);
+    z-index: 998; /* Detrás del botón fijo */
+    background-color: #f0f0f0;
+    border: none;
+    border-radius: 50px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+}
+
+#input-buscador {
+    padding: 8px;
+    border: none;
+    border-radius: 50px;
+    width: 260px;
+    font-size: 14px;
+}
+
+#resultados {
+    margin-top: 10px;
+    padding: 10px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.3);
+    position: absolute;
+    width: 300px;
+    right: 0;
+    top: 100%;
+    display: none;
+    max-height: 180px; /* Máximo 6 resultados a la vez (6 x 24px) */
+    overflow-y: auto; /* Agregar barra de desplazamiento si hay más de 6 resultados */
+}
+
+/* Estilo para los enlaces de los resultados */
+#resultados a {
+    text-decoration: none;
+    color: #333;
+    display: block;
+    padding: 5px 0;
+    transition: background-color 0.3s;
+}
+
+#resultados a:hover {
+    background-color: #f0f0f0;
+}
+
+.resultado-activo {
+    background-color: #007bff;
+    color: #fff;
+}

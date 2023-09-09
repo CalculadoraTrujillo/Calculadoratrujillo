@@ -6,6 +6,7 @@
     <title>Opción</title>
     <link rel="stylesheet" href="css/estiloscheckbox.css">
     <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/BOTON-BUSCAR.css">
     <link rel="stylesheet" href="css/mostrarimagenes.css">
 
 </head>
@@ -22,7 +23,7 @@
                             <div class="contenedor-de-todos-los-resultados">  <!--Inicio de resultados-->   
 
                                       <div class="Imagen-y-area-metros-cuadrados" > <!--Imagen y area metros cuadrados-->
-                                              <img id="selected-image" class="img-fluid" src="img/BOQUILLAS.png" alt="Imagen seleccionada" >
+                                              <img id="selected-image" class="img-fluid" src="img/img.png" alt="Imagen seleccionada" >
                                               <div class="contenedor-area-metros-cuadrados">
                                                 <p >El área en metros cuadrados es:</p>
                                                 <p style="color: rgb(0, 14, 136); font-size: 30px;" id="result-value"></p>
@@ -68,23 +69,28 @@
           </div>
           <div class="image-gallery container-fluid">
            
-            <div class="container container-lg">
+            <div class="container container-lg ">
             
-              <h1>Selecciona uno de los ambientes que desea consultar</h1>
+              <h1 style="font-size: 15px; margin-top: 22px;" class="h1-container-ambientes">Selecciona uno de los ambientes que desea consultar</h1>
               <div class="contenedor">
-                  <button class="boton" onclick="mostrarImagenes(1)">Botón 1</button>
-                  <button class="boton" onclick="mostrarImagenes(2)">Botón 2</button>
-                  <button class="boton" onclick="mostrarImagenes(3)">Botón 3</button>
-                  <button class="boton" onclick="mostrarImagenes(4)">Botón 4</button>
-                  <button class="boton" onclick="mostrarImagenes(5)">Botón 5</button>
+                  <button class="boton" onclick="mostrarImagenes(1)">Habitaciones</button>
+                  <button class="boton" onclick="mostrarImagenes(2)">Salas, comedor</button>
+                  <button class="boton" onclick="mostrarImagenes(3)">Cocinas</button>
+                  <button class="boton" onclick="mostrarImagenes(4)">Exteriores</button>
+                  <button class="boton" onclick="mostrarImagenes(5)">Baños</button>
               </div>
               <div class="galeria" id="galeria">
 
                     <!-- Todas las tarjetas se encuentran aquí en el HTML -->
-                    <div class="card" data-boton="1">
+                    <div class="card" id="Piso-Bakurah-gris" data-boton="1">
                           <div class="gallery-item" onclick="showInfo('Piso Barranquilla negro Euroceramica', '1.50 metros', 1.50, 6, 55228, 'img/ceramica/BARRANQUILLA-NEGRO-50X50 .jpg')">
                               <div class="contenedor-modal-gallery-item" style="justify-content: center;">
-                                <img src="img/ceramica/BARRANQUILLA-NEGRO-50X50 .jpg" alt="Imagen 1" class="gallery-image"> 
+                                <div>
+                                  <img src="img/ceramica/BARRANQUILLA-NEGRO-50X50 .jpg" alt="Imagen 1" class="gallery-image"> 
+                                  <p style="font-family: Poppins, sans-serif;">Piso Bakurah gris</p>
+                                </div>
+                                
+                          
                                 <!-- Button trigger modal -->
                                         <button type="button" style="background-color: rgba(0, 0, 0, 0); width: 20px; height: 20px; border: 0px; padding: 0px; margin-left: 15px;" class="" data-bs-toggle="modal" data-bs-target="#exampleModal">
                                           <img src="img/zoom.png" class="" width="100%" height="100%" alt="">
@@ -95,7 +101,7 @@
                                           <div class="modal-dialog">
                                             <div class="modal-content" style="background-color: rgba(0, 0, 0, 0); border: 0;">
                                               <div class="modal-header" style="border: 0px;">
-                                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                <button type="button"  class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                               </div>
                                               <div class="modal-body " >
                                                 <img src="img/ceramica/BARRANQUILLA-NEGRO-50X50 .jpg" class="img-fluid" alt="">
@@ -105,14 +111,18 @@
                                         </div> 
                                 <!-- FIN Button trigger modal -->
                               </div>
-                               <p style="font-family: Poppins, sans-serif;">Piso Bakurah gris</p>
+                              
                             </div>
                     </div><!--fin -->
 
                     <div class="card" data-boton="2">
                       <div class="gallery-item" onclick="showInfo('Piso Barranquilla negro Euroceramica', '1.50 metros', 1.50, 6, 45899, 'img/ceramica/PISO SAN BERNARDO 50X50 C1.50M  EURO.jpg')">
                         <div class="contenedor-modal-gallery-item" style="justify-content: center;">
-                          <img src="img/ceramica/PISO SAN BERNARDO 50X50 C1.50M  EURO.jpg" alt="Imagen 1" class="gallery-image"> 
+                          <div>
+                            <img src="img/ceramica/PISO SAN BERNARDO 50X50 C1.50M  EURO.jpg" alt="Imagen 1" class="gallery-image"> 
+                            <p style="font-family: Poppins, sans-serif;">Piso Bakurah gris</p>
+                          </div>
+                          
                           <!-- Button trigger modal -->
                                   <button type="button" style="background-color: rgba(0, 0, 0, 0); width: 20px; height: 20px; border: 0px; padding: 0px; margin-left: 15px;" class="" data-bs-toggle="modal" data-bs-target="#exampleModal2">
                                     <img src="img/zoom.png" class="" width="100%" height="100%" alt="">
@@ -133,7 +143,7 @@
                                   </div> 
                            <!-- FIN Button trigger modal -->
                         </div>
-                        <p style="font-family: Poppins, sans-serif;">Piso Bakurah gris</p>
+                     
                   </div><!--fin -->
                     </div>
                     <div class="card" data-boton="3">
@@ -162,6 +172,20 @@
   <!-------------------------------------------><!--FIN DE CONTENEDOR DE TODA LA PAGINA--><!------------------------------------------->
   <!-------------------------------------------><!---------------------------------------><!------------------------------------------->
 
+
+  <!--BTN DE BUSCAR-->
+  <div class="boton-fijo">
+    <img id="mi-boton" src="img/lupa (1).png"  alt="">
+  </div>
+  <div class="contenedor-input" id="contenedor-input">
+      <input type="text" id="input-buscador" placeholder="¿Que deseas buscar?">
+      <div id="resultados">
+          <!-- Resultados de búsqueda se insertarán aquí -->
+      </div>
+  </div>
+    <!--FIN DE BTN DE BUSCAR-->
+
+  <!--wearning-->
   <div id="background-overlay" class="overlay" onclick="closeWarning()"></div>
     <div id="warning-message" class="warning-container">
       <div>
@@ -169,9 +193,11 @@
       </div>
         
     </div>
+  <!--FIN DE wearning-->
 
     
 
+    <script src="js/boton-buscar.js"></script>
     <script src="js/jscheckbox.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <script src="js/mostrarimagnes.js"></script>
