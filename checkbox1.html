@@ -60,9 +60,10 @@
         <div class="contenedor-secundario-resultados">
 
        
-          <div class="container-cover">
+          <div class="container-cover ">
+             
             <div class="container-cover-sub">
-              <h1 class="">Cerámica <img src="img/ceramica.png" width="35px" alt=""> </h1>
+              <h1 class="">CERÁMICA <img src="img/ceramica.png" width="35px" alt=""> </h1>
               <span>Desliza hacia abajo para ver la galeria</span>
             </div>
               
@@ -73,11 +74,11 @@
             
               <h1 style="font-size: 15px; margin-top: 22px;" class="h1-container-ambientes">Selecciona uno de los ambientes que desea consultar</h1>
               <div class="contenedor">
-                  <button class="boton" onclick="mostrarImagenes(1)">Habitaciones</button>
-                  <button class="boton" onclick="mostrarImagenes(2)">Salas, comedor</button>
-                  <button class="boton" onclick="mostrarImagenes(3)">Cocinas</button>
-                  <button class="boton" onclick="mostrarImagenes(4)">Exteriores</button>
-                  <button class="boton" onclick="mostrarImagenes(5)">Baños</button>
+                  <button class="boton" onclick="mostrarImagenes(1)">Interior</button>
+                  <button class="boton" onclick="mostrarImagenes(2)">Exterior</button>
+                  <button class="boton" onclick="mostrarImagenes(3)">Baños</button>
+                  <!--<button class="boton" onclick="mostrarImagenes(4)">Exteriores</button>
+                  <button class="boton" onclick="mostrarImagenes(5)">Baños</button>-->
               </div>
               <div class="galeria" id="galeria">
 
@@ -87,10 +88,13 @@
                               <div class="contenedor-modal-gallery-item" style="justify-content: center;">
                                 <div>
                                   <img src="img/ceramica/BARRANQUILLA-NEGRO-50X50 .jpg" alt="Imagen 1" class="gallery-image"> 
-                                  <p style="font-family: Poppins, sans-serif;">Piso Bakurah gris</p>
+                                  <div class="contenedor-letras-nombre-productos">
+                                    <p style="font-family: Poppins, sans-serif;">Piso Barranquilla negro</p>
+                                    <span>00052025</span>
+                                  </div>
+                              
                                 </div>
                                 
-                          
                                 <!-- Button trigger modal -->
                                         <button type="button" style="background-color: rgba(0, 0, 0, 0); width: 20px; height: 20px; border: 0px; padding: 0px; margin-left: 15px;" class="" data-bs-toggle="modal" data-bs-target="#exampleModal">
                                           <img src="img/zoom.png" class="" width="100%" height="100%" alt="">
@@ -115,37 +119,45 @@
                             </div>
                     </div><!--fin -->
 
-                    <div class="card" data-boton="2">
-                      <div class="gallery-item" onclick="showInfo('Piso Barranquilla negro Euroceramica', '1.50 metros', 1.50, 6, 45899, 'img/ceramica/PISO SAN BERNARDO 50X50 C1.50M  EURO.jpg')">
-                        <div class="contenedor-modal-gallery-item" style="justify-content: center;">
-                          <div>
-                            <img src="img/ceramica/PISO SAN BERNARDO 50X50 C1.50M  EURO.jpg" alt="Imagen 1" class="gallery-image"> 
-                            <p style="font-family: Poppins, sans-serif;">Piso Bakurah gris</p>
-                          </div>
-                          
-                          <!-- Button trigger modal -->
-                                  <button type="button" style="background-color: rgba(0, 0, 0, 0); width: 20px; height: 20px; border: 0px; padding: 0px; margin-left: 15px;" class="" data-bs-toggle="modal" data-bs-target="#exampleModal2">
-                                    <img src="img/zoom.png" class="" width="100%" height="100%" alt="">
-                                  </button>
-    
-                                  <!-- Modal -->
-                                  <div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                    <div class="modal-dialog">
-                                      <div class="modal-content" style="background-color: rgba(0, 0, 0, 0); border: 0;">
-                                        <div class="modal-header" style="border: 0px;">
-                                          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                        </div>
-                                        <div class="modal-body " >
-                                          <img src="img/ceramica/PISO SAN BERNARDO 50X50 C1.50M  EURO.jpg" class="img-fluid" alt="">
-                                        </div>
-                                      </div>
-                                    </div>
-                                  </div> 
-                           <!-- FIN Button trigger modal -->
-                        </div>
-                     
-                  </div><!--fin -->
-                    </div>
+                                        <!-- Todas las tarjetas se encuentran aquí en el HTML -->
+                                        <div class="card" id="Piso-Bakurah-gris" data-boton="1">
+                                          <div class="gallery-item" onclick="showInfo('Piso Arabella Mix', '1.50 metros', 1.50, 6, 55228, 'img/ceramica/ceramica-arabellamix.jpg')">
+                                              <div class="contenedor-modal-gallery-item" style="justify-content: center;">
+                                                <div>
+                                                  <img src="img/ceramica/ceramica-arabellamix.jpg" alt="Imagen 1" class="gallery-image"> 
+                                                  <div class="contenedor-letras-nombre-productos">
+                                                    <p style="font-family: Poppins, sans-serif;">Piso Arabella Mix </p>
+                                                    <span>00052025</span>
+                                                  </div>
+                                              
+                                                </div>
+                                                
+                                                <!-- Button trigger modal -->
+                                                        <button type="button" style="background-color: rgba(0, 0, 0, 0); width: 20px; height: 20px; border: 0px; padding: 0px; margin-left: 15px;" class="" data-bs-toggle="modal" data-bs-target="#exampleModal2">
+                                                          <img src="img/zoom.png" class="" width="100%" height="100%" alt="">
+                                                        </button>
+                
+                                                        <!-- Modal -->
+                                                        <div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                          <div class="modal-dialog">
+                                                            <div class="modal-content" style="background-color: rgba(0, 0, 0, 0); border: 0;">
+                                                              <div class="modal-header" style="border: 0px;">
+                                                                <button type="button"  class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                              </div>
+                                                              <div class="modal-body " >
+                                                                <img src="img/ceramica/ceramica-arabellamix.jpg" class="img-fluid" alt="">
+                                                              </div>
+                                                            </div>
+                                                          </div>
+                                                        </div> 
+                                                <!-- FIN Button trigger modal -->
+                                              </div>
+                                              
+                                            </div>
+                                    </div><!--fin -->
+
+                    
+
                     <div class="card" data-boton="3">
                         <img class="imagen" src="imagen3.jpg" alt="Imagen 3">
                         <div class="card-title">Imagen 3</div>
@@ -190,6 +202,29 @@
     <div id="warning-message" class="warning-container">
       <div>
         <button id="close-button" onclick="closeWarning()">Cerrar</button>
+        <div> <!--INICIO DE CARUSEL-->
+          <div id="carouselExampleInterval" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner">
+              <div class="carousel-item active" data-bs-interval="4400">
+                <img src="img/BOQUILLAS.png" class="d-block w-100" alt="...">
+              </div>
+              <div class="carousel-item" data-bs-interval="2000">
+                <img src="img/ceramica.png" class="d-block w-100" alt="...">
+              </div>
+              <div class="carousel-item">
+                <img src="img/BOQUILLAS.png" class="d-block w-100" alt="...">
+              </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Next</span>
+            </button>
+          </div>
+        </div><!--FIN DE CARUSEL-->
       </div>
         
     </div>

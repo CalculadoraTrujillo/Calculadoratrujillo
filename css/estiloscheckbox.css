@@ -183,19 +183,25 @@ color: #007bff;
 .warning-container {
     display: none;
     position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 45%;
-    background-image: url(../img/portadaincio.png);
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position-x: center;
+    margin: auto;
+    top:20%;
+    left:auto;
+    background-color: #ffffff;
+    padding: 12px;
+    width: 60vh;
+    height: 60%;
     text-align:left;
     z-index: 1000;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
     font-family: "Poppins", sans-serif;
     line-height: 1.5;
+    border-radius: 12px;
+}
+.warning-container div {
+        text-align: right;
+        justify-content: center;
+        justify-self: center;
+        margin: auto;
 }
 
   @media (max-width: 927px) {
@@ -237,6 +243,7 @@ color: #007bff;
     border: none;
     padding: 5px 10px;
     cursor: pointer;
+ 
 }
 
 
@@ -296,11 +303,15 @@ color: #007bff;
     justify-content: center;
   }
   .container-cover{
-    background-image: url(../img/piscina.jpg);
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position-x: center;
-    height: 60vh;
+    background-image: url(../img/bano-pequeno-estilo-moderno-generado-ai.jpg);
+background-clip: content-box;
+background-repeat: no-repeat;
+    background-size: 100% auto;
+    background-attachment: fixed;
+
+    justify-self: center;
+    text-align: center;
+    height: 100vh;
     width: 100%;
     position: relative;
     display: flex;
@@ -308,18 +319,12 @@ color: #007bff;
     align-items: center;
     flex-direction: column;
   }
-
-  .container-cover:before {
-    content: "";
-    opacity: 0.6;
-    background: linear-gradient(#0056b3, rgb(15, 15, 15));
-    position: absolute;
-    bottom: 0;
-    top: 0;
-    left: 0;
-    right: 0;
-    z-index: 1;
+  .carrusel-inicio{
+    height: 100%;
+    width: 100%;
   }
+
+
 .container-cover-sub{
     position: relative;
     z-index: 2;
@@ -354,5 +359,19 @@ color: #007bff;
     font-size: 1px;
     color: #000;
   }
-
+  .contenedor-letras-nombre-productos{
+    justify-self: left;
+    text-align: left;
+    width: 100%;
+}
+  .contenedor-letras-nombre-productos p{
+      font-size: 15px;
+      margin-top: 20px;
+      margin-bottom: 0px;
+  }
+  .contenedor-letras-nombre-productos span{
+    font-size: 12px;
+    margin-top: 20px;
+    margin-bottom: 0px;
+}
   /**FIN contenedor-de-todos-los-resultados**/
